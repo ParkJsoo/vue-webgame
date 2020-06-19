@@ -7,7 +7,7 @@
             <button @click="onClickButton('보')">보</button>
         </div>
         <div>{{result}}</div>
-        <div>현대 {{score}}점</div>
+        <div>현재 {{score}}점</div>
     </div>
 </template>
 
@@ -17,6 +17,8 @@
         가위: '-142px',
         보: '-284px',
     };
+
+    let interval = null;
 
     export default {
         data() {
@@ -37,6 +39,40 @@
         onClickButton(choice) {
 
         },
+    },
+    beforeCreate() {
+        console.log('beforeCreate');
+    },
+    created() {
+        console.log('created');
+    },
+    beforeMount() {
+        console.log('beforeMount');
+    },
+    mounted() {
+        console.log('mounted');
+        interval = setInterval(() => {
+            if (this.imgCoord === rspCoords.바위) {
+                this.imgCoord = rspCoords.가위;
+            } else if (this.imgCoord === rspCoords.가위) {
+                this.imgCoord = rspCoords.보;
+            } else if (this.imgCoord === rspCoords.보) {
+                this.imgCoord = rspCoords.바위;
+            }
+        }, 100);
+    },
+    beforeUpdate() {
+        console.log('beforeUpdate');
+    },
+    updated() {
+        console.log('updated');
+    },
+    beforeDestroy() {
+        console.log('beforeDestroy');
+        clearInterval(interval);
+    },
+    destroyed() {
+        console.log('destroyed');
     },
 };
 </script>
