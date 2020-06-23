@@ -18,14 +18,17 @@
                     ['', '', ''],
                     ['', '', ''],
                 ],
-                turn: '0',
+                turn: 'O',
             };
         },
         computed: {
             
         },
         methods: {
-            
+            onChangeData() {
+                // this.tableData[1][0] = 'X'; 작동하지 않음
+                this.$set(this.tableData[1], 0, 'X');  // Vue.set과 동일
+            }
         },
     };
 </script>
