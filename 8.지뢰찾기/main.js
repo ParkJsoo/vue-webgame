@@ -1,0 +1,3 @@
+import ...
+
+new Vue(TicTacToe).$mount("#root");
