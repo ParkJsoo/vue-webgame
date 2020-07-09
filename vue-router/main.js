@@ -1,4 +1,4 @@
 import Vue from 'vue';
-import TicTacToe from './MineSweeper';
+import Router from './Router';
 
-new Vue(TicTacToe).$mount('#root');
+new Vue(Router).$mount('#root');
